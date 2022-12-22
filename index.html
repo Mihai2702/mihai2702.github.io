@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mihai's CV</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <header>
+    <h1>Velicu Mihai</h1>
+    <img src="profil.jpg" height="100" />
+    <h2 id="job-title">Graphic designer freelancer</h2>
+
+    <p style="color: blueviolet; text-align: right">
+      <strong>Welcome</strong> to my site
+      <ul id="top-menu-bar">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Known languages</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </p>
+  </header>
+  <body>
+  <section id="content">
+    <div id="side-menu">
+      <section>
+        <form action="">
+          <div>
+            <label for="subcriberEmail">Enter your Email</label>
+            <input
+              type="email"
+              required
+              name="email"
+              id="subscriberEmail"
+              placeholder="your@email.com"
+            />
+          </div>
+          <div>
+            <label for="Subscriber">Name</label>
+            <input
+              type="text"
+              required
+              name="name"
+              id="Subscriber"
+              placeholder="Full Name"
+            />
+            <button type="submit">Subscribe</button>
+          </div>
+        </form>
+      </section>
+      <section>Menu 2</section>
+    </div>
+    <div id="main">
+      <div class="page">
+        <h2>Skills</h2>
+  
+        <ul id="skills-list">
+      
+        
+         
+        </ul>
+      </div>
+      <div></div>
+      <div class="page">
+        <h2>Known languages</h2>
+  
+        <table border="1">
+          <th>Laguage</th>
+          <th>Level</th>
+          <tr>
+            <td>Romanian</td>
+            <td>Native</td>
+          </tr>
+          <tr>
+            <td>English</td>
+            <td>Converstional</td>
+          </tr>
+        </table>
+      </div>
+  
+    </div>
+  </section>
+  <footer>
+     
+    <a target="_blank" href="http://google.com">GOOGLE</a>
+ Ace, brice si carice
+  </footer>
+  <script src="index.js"></script>
+<script>
+  // comentariu
+  console.info("page loaded");
+  console.debug(2 * 3 + 1);
+  console.warn(2 * (3 + 1));
+
+  var employed = true; //boolean
+  var age = 23;
+
+  var user = "Mihai";
+  user = user + " Aurelian";
+  console.error(employed);
+  //object
+  var skills = ["html","css","js"]; 
+  //object(json)
+  var Costel ={
+    employed: false,
+    age: 69,
+  };
+  var Maricela ={
+    employed: false,
+    age: 88,
+  };
+  var jobTitle = document.getElementById("job-title");
+</script>
+  </body>
+</html>
