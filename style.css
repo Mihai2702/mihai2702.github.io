@@ -37,6 +37,7 @@ body {
 }
 
 .page {
+  display: none;
   background-color: #e0dfdc;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 1);
   /* border: 2px solid; */
