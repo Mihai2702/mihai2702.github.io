@@ -13,6 +13,7 @@ for (var i = 0; i < skills.length; i++) {
 skillsEl.innerHTML = skillsHTML;
 
 //display home
+
 function hideAllPages(){
   document.getElementById("home").style.display = 'none';
   document.getElementById("skills").style.display = 'none';
