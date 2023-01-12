@@ -15,9 +15,10 @@ var pageIds = ["home", "skills", "languages", "projects"];
 
 
 function hideAllPages(){
- pageIds.forEach(function hidePage(pageId){
-  hide(pageId);
-}); 
+  var pages = document.querySelectorAll(".page");
+  pages.forEach(function(page){
+    hide(page.id);
+  });
 
 }
 
