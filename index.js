@@ -31,17 +31,6 @@ function show(id){
 
  }
 
-function displayHome() {
-  hideAllPages();
-  show("home");
-
-}
-function displaySkills() {
-  hideAllPages();
-  show("skills");
-}
-displayLanguages();
-
 function displayLanguages(){
   hideAllPages();
   show("languages");
@@ -50,4 +39,10 @@ function displayProjects(){
   hideAllPages();
   show("projects");
 }
- displayHome();
+
+function displayPage(id){
+hideAllPages();
+show(id);
+}
+
+displayPage('home');
