@@ -14,8 +14,6 @@ skillsEl.innerHTML = skillsHTML;
 var pageIds = ["home", "skills", "languages", "projects"];
 
 
-
-
 function hideAllPages(){
  pageIds.forEach(function hidePage(pageId){
   hide(pageId);
@@ -30,15 +28,6 @@ function show(id){
   document.getElementById(id).style.display = 'none'; 
 
  }
-
-function displayLanguages(){
-  hideAllPages();
-  show("languages");
-}
-function displayProjects(){
-  hideAllPages();
-  show("projects");
-}
 
 function displayPage(id){
 hideAllPages();
