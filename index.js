@@ -9,17 +9,15 @@ var skills = [
 // var skills = [["HTML", 5], ["CSS",4], "JS", "Drive"];
 
 var skillsHTML = " ";
-var i = 0;
 
 
 
-skills.forEach(function(skill){
-skillsHTML += "<li>" + skill.name + " " + "-" + skill.endorcements +  "</li>";
+var s = skills.map(function(skill){
+return"<li>" + skill.name + " " + "-" + skill.endorcements +  "</li>";
 
 })
-
-
-skillsEl.innerHTML = skillsHTML;
+console.warn("s", s);
+skillsEl.innerHTML = s.join("");
 
 function hideAllPages(){
   var pages = document.querySelectorAll(".page");
