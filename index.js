@@ -12,11 +12,12 @@ var skillsHTML = " ";
 var i = 0;
 
 
-for (var i = 0; i < skills.length; i++) {
-  console.info(skills[i].name);
-  skillsHTML += "<li>" + skills[i].name + " " + "-" + skills[i].endorcements+  "</li>";
 
-}
+skills.forEach(function(skill){
+skillsHTML += "<li>" + skill.name + " " + "-" + skill.endorcements +  "</li>";
+
+})
+
 
 skillsEl.innerHTML = skillsHTML;
 
