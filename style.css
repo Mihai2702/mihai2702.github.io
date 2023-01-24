@@ -19,7 +19,7 @@ body {
 }
 #side-menu {
   flex: 1;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 #main {
   flex: 2;
@@ -185,4 +185,35 @@ body {
   font-size: 15px;
   padding: 5px;
   /* margin-bottom: 10px; */
+}
+.music-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c29e6;
+  height: 200px;
+  width: 500px;
+  border-radius: 20px;
+}
+.music-container img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  float: left;
+}
+.action-btn {
+  width: 40px;
+  height: 40px;
+  background: #fca311;
+  border: none;
+  margin-left: 10px;
+  font-size: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+}
+.action h4 {
+  margin: 5px;
 }
