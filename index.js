@@ -1,20 +1,23 @@
 var skillsEl = document.getElementById('skills-list');
 
-var skills = [
-  { name: 'HTML', endorcements: 5 },
-  { name: 'CSS', endorcements: 5 },
-  { name: 'JS', endorcements: 5 },
-  { name: 'Drive', endorcements: 5 },
-];
-// var skills = [["HTML", 5], ["CSS",4], "JS", "Drive"];
-
+var skills = [];
 var skillsHTML = ' ';
 
-var s = skills.map(function (skill) {
-  return '<li>' + skill.name + ' ' + '-' + skill.endorcements + '</li>';
+var r1 = fetch('skills.json');
+r1.then(function (raspuns) {
+  var r2 = raspuns.json();
+  r2.then(function (skills) {
+    displaySkills(skills);
+  });
 });
-console.warn('s', s);
-skillsEl.innerHTML = s.join('');
+console.warn('r1', r1, skillsEl);
+
+function displaySkills(skills) {
+  var s = skills.map(function (skill) {
+    return '<li>' + skill.name + ' ' + '-' + skill.endorcements + '</li>';
+  });
+  skillsEl.innerHTML = s.join('');
+}
 
 function hideAllPages() {
   var pages = document.querySelectorAll('.page');
@@ -55,13 +58,8 @@ let progress = document.getElementById('progess');
 let song = document.getElementById('song');
 let ctrlIcon = document.getElementById('ctrlIcon');
 let btn = document.querySelector('playBot');
-// songCurTime = document.querySelector('currentTime');
-// songDurTime = document.querySelector('songDuration');
-// song.addEventListener('timeUpdates', songTimeUpdate);
-var cover = document.querySelector('cover');
-var rotate = false;
-var runner;
-var degrees = 0;
+currentTime = document.getElementById('currentTime');
+durationTime = document.getElementById('songDuration');
 
 song.onloadedmetadata = function () {
   progress.max = song.duration;
@@ -92,34 +90,32 @@ progress.onchange = function () {
 };
 song.pause();
 
-// rotate
-
 //  time updates
 
-// function songTimeUpdate() {
-//   if (song.duration) {
-//     let curmin = Math.floor(song.currentTime / 60);
-//     let cursec = Math.floor(song.currentTime - curmin * 60);
-//     let durdmin = Math.floor(song.currentTime / 60);
-//     let dursec = Math.floor(song.currentTime - durmin * 60);
+function songTimeUpdate() {
+  if (song.duration) {
+    let curmin = Math.floor(song.currentTime / 60);
+    let cursec = Math.floor(song.currentTime - curmin * 60);
+    let durdmin = Math.floor(song.currentTime / 60);
+    let dursec = Math.floor(song.currentTime - durmin * 60);
 
-//     if (dursec < 10) {
-//       dursec = '0' + dursec;
-//     }
-//     if (durmin < 10) {
-//       durmin = '0' + durmin;
-//     }
-//     if (cursec < 10) {
-//       cursec = '0' + cursec;
-//     }
-//     if (curmin < 10) {
-//       curmin = '0' + curmin;
-//     }
+    if (dursec < 10) {
+      dursec = '0' + dursec;
+    }
+    if (durmin < 10) {
+      durmin = '0' + durmin;
+    }
+    if (cursec < 10) {
+      cursec = '0' + cursec;
+    }
+    if (curmin < 10) {
+      curmin = '0' + curmin;
+    }
 
-//     songCurTime.innerHTML = curmin + ':' + cursec;
-//     songDurTime.innerHTML = durdmin + ':' + dursec;
-//   } else {
-//     songCurTime.innerHTML = '00' + ':' + '00';
-//     songDurTime.innerHTML = durdmin + ':' + dursec;
-//   }
-// }
+    currentTime.innerHTML = curmin + ':' + cursec;
+    songDuration.innerHTML = durdmin + ':' + dursec;
+  } else {
+    currentTime.innerHTML = '00' + ':' + '00';
+    songDuration.innerHTML = durdmin + ':' + dursec;
+  }
+}
