@@ -1,8 +1,3 @@
-var skillsEl = document.getElementById('skills-list');
-
-var skills = [];
-var skillsHTML = ' ';
-
 var r1 = fetch('skills.json');
 r1.then(function (raspuns) {
   var r2 = raspuns.json();
@@ -10,17 +5,17 @@ r1.then(function (raspuns) {
     displaySkills(skills);
   });
 });
-console.warn('r1', r1, skillsEl);
 
 function displaySkills(skills) {
-  var s = skills.map(function (skill) {
+  const skillsHTML = skills.map(function (skill) {
     return '<li>' + skill.name + ' ' + '-' + skill.endorcements + '</li>';
   });
-  skillsEl.innerHTML = s.join('');
+  const skillsEl = document.getElementById('skills-list');
+  skillsEl.innerHTML = skillsHTML.join('');
 }
 
 function hideAllPages() {
-  var pages = document.querySelectorAll('.page');
+  const pages = document.querySelectorAll('.page');
   pages.forEach(function (page) {
     hide(page.id);
   });
@@ -42,8 +37,7 @@ function initMenu() {
   document.getElementById('top-menu-bar').addEventListener('click', function (e) {
     if (e.target.matches('a')) {
       // var id =  e.target.getAttribute("data-page");
-      var id = e.target.dataset.page;
-      console.warn('click', id, e.target);
+      const id = e.target.dataset.page;
       displayPage(id);
     }
   });
@@ -57,7 +51,6 @@ initMenu();
 let progress = document.getElementById('progess');
 let song = document.getElementById('song');
 let ctrlIcon = document.getElementById('ctrlIcon');
-let btn = document.querySelector('playBot');
 currentTime = document.getElementById('currentTime');
 durationTime = document.getElementById('songDuration');
 
