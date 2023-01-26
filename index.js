@@ -46,7 +46,7 @@ function initMenu() {
   });
 }
 
-displayPage('skills');
+displayPage('home');
 initMenu();
 
 // music player
@@ -54,14 +54,20 @@ initMenu();
 let progress = document.getElementById('progess');
 let song = document.getElementById('song');
 let ctrlIcon = document.getElementById('ctrlIcon');
-songCurTime = document.querySelector('currentTime');
-songDurTime = document.querySelector('songDuration');
-song.addEventListener('timeUpdates', songTimeUpdate);
+let btn = document.querySelector('playBot');
+// songCurTime = document.querySelector('currentTime');
+// songDurTime = document.querySelector('songDuration');
+// song.addEventListener('timeUpdates', songTimeUpdate);
+var cover = document.querySelector('cover');
+var rotate = false;
+var runner;
+var degrees = 0;
 
 song.onloadedmetadata = function () {
   progress.max = song.duration;
   progress.value = song.curentTime;
 };
+
 function playPause() {
   if (ctrlIcon.classList.contains('fa-pause')) {
     song.pause();
@@ -84,33 +90,36 @@ progress.onchange = function () {
   ctrlIcon.classList.add('fa-pause');
   ctrlIcon.classList.remove('fa-play');
 };
+song.pause();
+
+// rotate
 
 //  time updates
 
-function songTimeUpdate() {
-  if (song.duration) {
-    let curmin = Math.floor(song.currentTime / 60);
-    let cursec = Math.floor(song.currentTime - curmin * 60);
-    let durdmin = Math.floor(song.currentTime / 60);
-    let dursec = Math.floor(song.currentTime - durmin * 60);
+// function songTimeUpdate() {
+//   if (song.duration) {
+//     let curmin = Math.floor(song.currentTime / 60);
+//     let cursec = Math.floor(song.currentTime - curmin * 60);
+//     let durdmin = Math.floor(song.currentTime / 60);
+//     let dursec = Math.floor(song.currentTime - durmin * 60);
 
-    if (dursec < 10) {
-      dursec = '0' + dursec;
-    }
-    if (durmin < 10) {
-      durmin = '0' + durmin;
-    }
-    if (cursec < 10) {
-      cursec = '0' + cursec;
-    }
-    if (curmin < 10) {
-      curmin = '0' + curmin;
-    }
+//     if (dursec < 10) {
+//       dursec = '0' + dursec;
+//     }
+//     if (durmin < 10) {
+//       durmin = '0' + durmin;
+//     }
+//     if (cursec < 10) {
+//       cursec = '0' + cursec;
+//     }
+//     if (curmin < 10) {
+//       curmin = '0' + curmin;
+//     }
 
-    songCurTime.innerHTML = curmin + ':' + cursec;
-    songDurTime.innerHTML = durdmin + ':' + dursec;
-  } else {
-    songCurTime.innerHTML = '00' + ':' + '00';
-    songDurTime.innerHTML = durdmin + ':' + dursec;
-  }
-}
+//     songCurTime.innerHTML = curmin + ':' + cursec;
+//     songDurTime.innerHTML = durdmin + ':' + dursec;
+//   } else {
+//     songCurTime.innerHTML = '00' + ':' + '00';
+//     songDurTime.innerHTML = durdmin + ':' + dursec;
+//   }
+// }

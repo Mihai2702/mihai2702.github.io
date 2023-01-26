@@ -216,6 +216,16 @@ body {
   color: #fff;
   transition: 0.3s ease-in-out;
 }
+.action-btn-big {
+  width: 50px;
+  height: 50px;
+}
+.action-btn:active {
+  transition: ease-in-out;
+  transition: 0.8s;
+  background: black;
+  color: #fca311;
+}
 .action h4 {
   margin: 5px;
 }
