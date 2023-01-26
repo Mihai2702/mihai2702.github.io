@@ -1,7 +1,7 @@
 var r1 = fetch('skills.json');
-r1.then(function (raspuns) {
+r1.then(raspuns => {
   var r2 = raspuns.json();
-  r2.then(function (skills) {
+  r2.then(skills => {
     displaySkills(skills);
   });
 });
@@ -16,7 +16,7 @@ function displaySkills(skills) {
 
 function hideAllPages() {
   const pages = document.querySelectorAll('.page');
-  pages.forEach(function (page) {
+  pages.forEach(page => {
     hide(page.id);
   });
 }
@@ -34,7 +34,7 @@ function displayPage(id) {
 }
 
 function initMenu() {
-  document.getElementById('top-menu-bar').addEventListener('click', function (e) {
+  document.getElementById('top-menu-bar').addEventListener('click', e => {
     if (e.target.matches('a')) {
       // var id =  e.target.getAttribute("data-page");
       const id = e.target.dataset.page;
@@ -46,6 +46,12 @@ function initMenu() {
 displayPage('home');
 initMenu();
 
+const f1 = function () {
+  return 'arrow';
+};
+const f2 = () => {
+  return 'arrow';
+};
 // music player
 
 let progress = document.getElementById('progess');
