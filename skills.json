@@ -2,5 +2,9 @@
   { "name": "HTML", "endorcements": 5 },
   { "name": "CSS", "endorcements": 5 },
   { "name": "JS", "endorcements": 5 },
-  { "name": "Drive", "endorcements": 5 }
+  { "name": "Drive", "endorcements": 5 },
+  { "name": "Adobe Photoshop", "endorcements": 9 },
+  { "name": "Adobe Illustrator", "endorcements": 10 },
+  { "name": "Adobe After Effects", "endorcements": 7 },
+  { "name": "Adobe XD", "endorcements": 9 }
 ]

@@ -55,10 +55,11 @@ const f2 = () => {
 // music player
 
 let progress = document.getElementById('progess');
-let song = document.getElementById('song');
+const song = document.getElementById('song');
 let ctrlIcon = document.getElementById('ctrlIcon');
-currentTime = document.getElementById('currentTime');
-durationTime = document.getElementById('songDuration');
+let currentTime = document.getElementById('currentTime');
+let durationTime = document.getElementById('songDuration');
+// song.addEventListener('timeupdates', songTimeUpdate);
 
 song.onloadedmetadata = function () {
   progress.max = song.duration;
@@ -89,32 +90,10 @@ progress.onchange = function () {
 };
 song.pause();
 
-//  time updates
+//time update
+setInterval(() => {
+  const minutes = Math.floor(song.currentTime / 60);
+  const seconds = Math.floor(song.currentTime % 60);
 
-function songTimeUpdate() {
-  if (song.duration) {
-    let curmin = Math.floor(song.currentTime / 60);
-    let cursec = Math.floor(song.currentTime - curmin * 60);
-    let durdmin = Math.floor(song.currentTime / 60);
-    let dursec = Math.floor(song.currentTime - durmin * 60);
-
-    if (dursec < 10) {
-      dursec = '0' + dursec;
-    }
-    if (durmin < 10) {
-      durmin = '0' + durmin;
-    }
-    if (cursec < 10) {
-      cursec = '0' + cursec;
-    }
-    if (curmin < 10) {
-      curmin = '0' + curmin;
-    }
-
-    currentTime.innerHTML = curmin + ':' + cursec;
-    songDuration.innerHTML = durdmin + ':' + dursec;
-  } else {
-    currentTime.innerHTML = '00' + ':' + '00';
-    songDuration.innerHTML = durdmin + ':' + dursec;
-  }
-}
+  currentTime.innerHTML = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}, 1000);
