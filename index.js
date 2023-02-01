@@ -57,9 +57,50 @@ const f2 = () => {
 let progress = document.getElementById('progess');
 const song = document.getElementById('song');
 let ctrlIcon = document.getElementById('ctrlIcon');
+let cover = document.getElementById('coverSong');
 let currentTime = document.getElementById('currentTime');
 let durationTime = document.getElementById('songDuration');
 // song.addEventListener('timeupdates', songTimeUpdate);
+
+let music = [
+  { title: 'Everything She Wants', artist: 'Wham!', path: '/music/everything-she-wants.mp3', cover: '/images/everything-she-wants.jfif', duration: '03:59' },
+
+  { title: 'Esti', artist: 'The Kryptonite Sparks', path: '/music/esti.mp3', cover: '/images/esti.jfif', duration: '03:14' },
+
+  { title: 'Afraid To Feel', artist: 'LF System', path: '/music/afraid_to_feel.mp3', cover: '/images/afraid_to_feel.png', duration: '03:02' },
+
+  { title: 'The Walker', artist: 'Fitz and the Tantrums', path: '/music/the_walker.mp3', cover: '/images/the_walker.jpg', duration: '03:59' },
+
+  { title: 'Distant Dreamer', artist: 'Duffy', path: '/music/distant_dreamer.mp3', cover: '/images/distant_dreamer.jfif', duration: '05:13' },
+];
+let currentSongIndex = 0;
+
+function nextSong() {
+  currentSongIndex++;
+  if (currentSongIndex >= music.length) {
+    currentSongIndex = 0;
+  }
+  songTitle.innerHTML = music[currentSongIndex].title;
+  artist.innerHTML = music[currentSongIndex].artist;
+  song.src = music[currentSongIndex].path;
+  coverSong.src = music[currentSongIndex].cover;
+  songDuration.innerHTML = music[currentSongIndex].duration;
+  playPause();
+  song.play();
+}
+
+function prevSong() {
+  currentSongIndex--;
+  if (currentSongIndex < 0) {
+    currentSongIndex = music.length - 1;
+  }
+  songTitle.innerHTML = music[currentSongIndex].title;
+  artist.innerHTML = music[currentSongIndex].artist;
+  song.src = music[currentSongIndex].path;
+  coverSong.src = music[currentSongIndex].cover;
+  playPause();
+  song.play();
+}
 
 song.onloadedmetadata = function () {
   progress.max = song.duration;

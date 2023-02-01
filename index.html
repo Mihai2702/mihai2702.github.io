@@ -69,9 +69,9 @@
     </div>
   </div>
   <audio src="music/everything-she-wants.mp3" id="song"></audio>
-  <img src="images/everything-she-wants.jfif" alt="music-cover" class="cover">
+  <img src="images/everything-she-wants.jfif" id="coverSong" alt="music-cover" class="cover">
   <div class="interactive">
-  <h4 id="song-title">Everything She Wants</h4>
+  <h4 id="songTitle">Everything She Wants</h4>
   <h5 id="artist">Wham!</h5>
   <div class="info-player">
     <span id="currentTime"></span>
@@ -91,13 +91,13 @@ class="slider">
 </div>
 
   <div class="navigation">
-    <button id="prev" class="action-btn">
+    <button onclick="prevSong()" id="prev" class="action-btn">
      <i class="fa fa-backward"></i>
     </button>
     <button onclick="playPause()" id="play" class="action-btn action-btn-big">
       <i class="fa fa-play" id="ctrlIcon"></i>
      </button>
-     <button id="next" class="action-btn">
+     <button onclick="nextSong()" id="next" class="action-btn">
       <i class="fa fa-forward"></i>
      </button>
     </div>
