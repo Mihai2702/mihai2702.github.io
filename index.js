@@ -63,7 +63,7 @@ let durationTime = document.getElementById('songDuration');
 // song.addEventListener('timeupdates', songTimeUpdate);
 
 let music = [
-  { title: 'Everything She Wants', artist: 'Wham!', path: '/music/everything-she-wants.mp3', cover: '/images/everything-she-wants.jfif', duration: '03:59' },
+  { title: 'Everything She Wants', artist: 'Wham!', path: '/music/everything-she-wants.mp3', cover: '/images/everything-she-wants.jfif', duration: '05:10' },
 
   { title: 'Esti', artist: 'The Kryptonite Sparks', path: '/music/esti.mp3', cover: '/images/esti.jfif', duration: '03:14' },
 
